@@ -8,13 +8,13 @@ router.post('/', (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const tasks = [];
-  // const owner = req.user._id;
+  const owner = req.user._id;
 
   Project.create({
     title: title,
     description: description,
     tasks: tasks,
-    // owner: owner
+    owner: owner
   })
     .then(project => {
       res.status(201).json(project);
